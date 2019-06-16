@@ -1,0 +1,17 @@
+{% extends "users/base.html" %}
+
+{% block body %}
+<h1>Registrate</h1>
+{% if message %}
+    <div>
+        {{ message }}
+    </div>
+{% endif %}
+<form action="{% url 'registrate' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" maxlength="150" required>
+    <input type="password" name="password" required>
+    <input type="submit" value="Registrate">
+</form>
+<a href="{% url 'index' %}">Volver</a>
+{% endblock %}
